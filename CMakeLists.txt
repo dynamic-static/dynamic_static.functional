@@ -6,7 +6,8 @@
 # ==========================================
 
 cmake_minimum_required(VERSION 3.17 FATAL_ERROR)
-project(dynamic_static.event)
+project(dynamic_static.functional)
+set(CMAKE_CXX_STANDARD 17)
 
 ################################################################################
 # Dependencies
@@ -15,23 +16,32 @@ string(REPLACE "\\" "/" DYNAMIC_STATIC "$ENV{DYNAMIC_STATIC}")
 include("${external}/dynamic_static.build.cmake")
 
 ################################################################################
-# dynamic_static.event
+# dynamic_static.functional
+set(includeDirectory "${CMAKE_CURRENT_LIST_DIR}/include/")
+set(includePath "${includeDirectory}/dynamic_static/functional/")
+set(sourcePath "${CMAKE_CURRENT_LIST_DIR}/source/dynamic_static/functional/")
 dst_add_interface_library(
-    target dynamic_static.event
-    includeDirectories PUBLIC "${CMAKE_CURRENT_LIST_DIR}/include/"
+    target
+        dynamic_static.functional
+    includeDirectories
+        "${includeDirectory}"
     includeFiles
-        "${CMAKE_CURRENT_LIST_DIR}/include/dynamic_static/action.hpp"
-        "${CMAKE_CURRENT_LIST_DIR}/include/dynamic_static/delegate.hpp"
-        "${CMAKE_CURRENT_LIST_DIR}/include/dynamic_static/event.hpp"
-        "${CMAKE_CURRENT_LIST_DIR}/include/dynamic_static/subscribable.hpp"
+        "${includePath}/action.hpp"
+        "${includePath}/delegate.hpp"
+        "${includePath}/event.hpp"
+        "${includePath}/subscribable.hpp"
+        "${includeDirectory}/dynamic_static/functional.hpp"
 )
 
 ################################################################################
-# dynamic_static.event.test
+# dynamic_static.functional.test
+include("${external}/dynamic_static.random.cmake")
 dst_add_target_test(
-    target dynamic_static.event
+    target
+        dynamic_static.functional
+    linkLibraries
+        dynamic_static.random
     sourceFiles
-        "${CMAKE_CURRENT_LIST_DIR}/tests/action.tests.cpp"
         "${CMAKE_CURRENT_LIST_DIR}/tests/delegate.tests.cpp"
         "${CMAKE_CURRENT_LIST_DIR}/tests/event.tests.cpp"
         "${CMAKE_CURRENT_LIST_DIR}/tests/subscribable.tests.cpp"

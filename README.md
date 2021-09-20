@@ -1,1 +1,1 @@
-# dynamic_static.event
+# dynamic_static.functional
