@@ -101,23 +101,23 @@ TEST_CASE("Event<>::operator=(Event<>&&)", "[Event<>]")
     for (size_t i = 0; i < TestCount; ++i) {
         movedListeners[i] = std::move(listeners[i]);
     }
-    // publisher.publish("the");
-    // publisher.publish("quick");
-    // publisher.publish("brown");
-    // publisher.publish("fox");
-    // movedPublisher.publish("jumps");
-    // movedPublisher.publish("over");
-    // movedPublisher.publish("the");
-    // movedPublisher.publish("lazy");
-    // movedPublisher.publish("dog");
-    // for (size_t i = 0; i < TestCount; ++i) {
-    //     if (!listeners[i].sentence.empty()) {
-    //         FAIL();
-    //     }
-    //     if (movedListeners[i].sentence != "jumps over the lazy dog") {
-    //         FAIL();
-    //     }
-    // }
+    publisher.publish("the");
+    publisher.publish("quick");
+    publisher.publish("brown");
+    publisher.publish("fox");
+    movedPublisher.publish("jumps");
+    movedPublisher.publish("over");
+    movedPublisher.publish("the");
+    movedPublisher.publish("lazy");
+    movedPublisher.publish("dog");
+    for (size_t i = 0; i < TestCount; ++i) {
+        if (!listeners[i].sentence.empty()) {
+            FAIL();
+        }
+        if (movedListeners[i].sentence != "jumps over the lazy dog") {
+            FAIL();
+        }
+    }
 }
 
 } // namespace tests
