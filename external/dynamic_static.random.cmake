@@ -13,7 +13,8 @@ else()
     FetchContent_Declare(
         dynamic_static.random
         GIT_REPOSITORY "https://github.com/dynamic-static/dynamic_static.random.git"
-        GIT_TAG e3f80c9eede53ddc019373ac34ba793ece2c9aea
+        GIT_TAG fa1c8d6058e4ae7a16eab815ede5f3e80741e172
+
         GIT_PROGRESS TRUE
         FETCHCONTENT_UPDATES_DISCONNECTED
     )
