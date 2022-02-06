@@ -14,7 +14,6 @@ else()
         dynamic_static.build
         GIT_REPOSITORY "https://github.com/dynamic-static/dynamic_static.build.git"
         GIT_TAG d43db5c7e0788b1e34883aa5fdaaf24a8435e5d9
-
         GIT_PROGRESS TRUE
         FETCHCONTENT_UPDATES_DISCONNECTED
     )

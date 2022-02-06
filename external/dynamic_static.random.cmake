@@ -14,7 +14,6 @@ else()
         dynamic_static.random
         GIT_REPOSITORY "https://github.com/dynamic-static/dynamic_static.random.git"
         GIT_TAG fa1c8d6058e4ae7a16eab815ede5f3e80741e172
-
         GIT_PROGRESS TRUE
         FETCHCONTENT_UPDATES_DISCONNECTED
     )
